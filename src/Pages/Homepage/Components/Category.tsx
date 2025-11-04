@@ -1,65 +1,70 @@
 import React from "react";
 import services from "../../../assets/satellite-dish.png";
-import sercies1 from "../../../assets/plane.png";
+import services1 from "../../../assets/plane.png";
 import services2 from "../../../assets/image 25.png";
 
 const servicesData = [
   {
-    name: "Calculated Weather ",
+    name: "Calculated Weather",
     description: "Built Wicket longer admire do barton vanity itself do in it.",
     image: services,
   },
   {
-    name: "Best Flights ",
+    name: "Best Flights",
     description: "Engrossed listening. Park gate sell they west hard for the.",
-    image: sercies1,
+    image: services1,
   },
   {
-    name: "Local Events ",
+    name: "Local Events",
     description:
-      "Barton vanity itself do in it. Preferd to men it engrossed listening. ",
+      "Barton vanity itself do in it. Preferred to men it engrossed listening.",
     image: services2,
   },
   {
-    name: "Customization ",
-    description: "We deliver outsourcedaviation services formilitary customers",
+    name: "Customization",
+    description:
+      "We deliver outsourced aviation services for military customers.",
     image: services,
   },
 ];
 
 const Category: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
-      <div className="flex flex-col items-center justify-center ">
-        <h1 className="mt-4 font-serif">CATEGORY</h1>
-        <h1 className="text-2xl md:text-5xl font-serif font-semibold mt-4">
+    <div className="max-w-7xl mx-auto px-8 py-16">
+      {/* Header */}
+      <div className="flex flex-col items-center text-center mb-12">
+        <h3 className="text-sm tracking-widest text-[#F1A501] font-semibold">
+          CATEGORY
+        </h3>
+        <h1 className="text-3xl md:text-5xl font-serif font-semibold mt-3 text-gray-800">
           We Offer Best Services
         </h1>
       </div>
 
-      {/* services list  */}
-
-      <div className=" flex flex-row mt-14 justify-between">
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         {servicesData.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center gap-2 hover:shadow-2xl p-8 rounded-bl-2xl rounded-tr-2xl rounded-tl-lg rounded-br-lg transition-all duration-300 ease-in-out"
+            className="flex flex-col items-center bg-white shadow-md hover:shadow-2xl rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2"
           >
-            <div className="relative">
-              <div className="w-20">
+            <div className="relative mb-6">
+              <div className="w-20 h-20 flex items-center justify-center">
                 <img
                   src={item.image}
-                  alt=""
-                  className="w-full h-full object-fill"
+                  alt={item.name}
+                  className="w-full h-full object-contain"
                 />
               </div>
-
-              <div className="w-[50px] h-[50px] bg-[#FFF2D9] rounded-bl-2xl rounded-tr-2xl  absolute top-10 left-8 -z-10 "></div>
+              <div className="w-[60px] h-[60px] bg-[#FFF2D9] rounded-bl-3xl rounded-tr-3xl absolute top-6 left-6 -z-10" />
             </div>
-            <h1 className="mt-8 text-2xl text-center font-semibold">
+
+            <h2 className="text-xl font-semibold text-gray-800 text-center mb-2">
               {item.name}
-            </h1>
-            <p className="text-center md:w-50 ">{item.description}</p>
+            </h2>
+            <p className="text-center text-gray-500 text-sm leading-relaxed">
+              {item.description}
+            </p>
           </div>
         ))}
       </div>

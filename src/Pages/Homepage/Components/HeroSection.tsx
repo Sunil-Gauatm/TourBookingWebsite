@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
         className="absolute top-0 right-0 -z-80"
       />
       {/* herosection contain  */}
-      <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row mt-12 items-center ">
+      <div className="max-w-7xl mx-auto px-8 py-4 flex flex-col md:flex-row mt-12 items-center ">
         <div className="flex flex-col gap-6 ">
           <h1 className="text-lg font-semibold text-red-600 text-center md:text-start">
             {heading.toUpperCase()}

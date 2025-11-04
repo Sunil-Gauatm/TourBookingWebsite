@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosArrowDown } from "react-icons/io";
@@ -6,17 +6,35 @@ import { IoIosArrowDown } from "react-icons/io";
 const Navbar: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => setIsMobile((prev) => !prev);
   const handleDropdownEnter = () => setDropdownOpen(true);
   const handleDropdownLeave = () => setDropdownOpen(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const dropdowndata = ["Pokhara", "Kathmandu", "Biratnagar"];
 
   return (
     <>
       {/* web view */}
-      <nav className="max-w-7xl px-4 py-4 mx-auto flex flex-row items-center md:justify-between justify-evenly">
+
+
+      <div className={` ${scrolled ? "fixed top-0 left-0 right-0 z-50 bg-white w-full px-4 py-4" : "max-w-7xl px-4 py-4 mx-auto"}`}>
+
+      <nav className={`max-w-7xl px-4  max mx-auto flex flex-row items-center md:justify-between justify-evenly `}>
         {/* logoImage */}
         <img src={logo} alt="logoImage" />
 
@@ -65,12 +83,14 @@ const Navbar: React.FC = () => {
           onClick={toggleMenu}
         />
       </nav>
+      </div>
+
 
       {/* mobile view */}
       {isMobile && (
         <nav>
-          <ul className="flex flex-col gap-8 py-4 items-center bg-gray-600 text-white">
-            <li className="cursor-pointer relative"  onClick={toggleMenu}>
+          <ul className="flex flex-col gap-8 py-4 items-center bg-gray-600 text-white ">
+            <li className="cursor-pointer relative" onClick={toggleMenu}>
               <div
                 className="flex flex-row items-center gap-2"
                 onMouseEnter={handleDropdownEnter}
@@ -118,7 +138,12 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
         </nav>
+        
       )}
+
+      {
+        scrolled && <div className="mt-48"> </div>
+      }
     </>
   );
 };
