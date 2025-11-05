@@ -44,7 +44,7 @@ const Topdestination: React.FC = () => {
       {/* destinations  */}
       <div className="flex flex-row gap-4 items-center justify-center md:justify-center xl:justify-between flex-wrap">
         {destinationData.map((item, index) => (
-          <div key={index} className="shadow-lg rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-6">
+          <div key={index} className="shadow-lg hover:shadow-2xl rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-4">
             <div className="w-90 h-100 rounded-2xl ">
               <img
                 src={item.image}
