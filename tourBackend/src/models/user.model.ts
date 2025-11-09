@@ -20,7 +20,6 @@ const userSchema = new Schema<Iuser>(
     },
     phonenumber: {
       type: String,
-      required: true,
       unique: true,
     },
     password: {

@@ -1,11 +1,13 @@
 import type { Request, Response } from "express";
 import { User } from "../models/user.model.ts";
 import bcrypt from "bcryptjs";
+import { jwtTokenGenerator } from "../utils/jwtToken.ts";
 
 export const authentication = {
   userRegistration: async (req: Request, res: Response) => {
     try {
       const { name, email, phonenumber, password } = req.body;
+
 
       // check exisiting user
       const exisitingemail = await User.findOne({ email });
@@ -33,19 +35,31 @@ export const authentication = {
         password: hashPassword,
       });
 
+      const savedUser = await User.findById(newuser._id)
+      console.log(savedUser)
+
       const { password: _password, ...datawithoutPassword } =
         newuser.toObject();
 
-      res
-        .status(201)
-        .json({
-          message: "User Created Sucessfully!!",
-          data: datawithoutPassword,
-        });
+        
+      // const token =  jwtTokenGenerator({
+          
+
+      //   })
+
+      res.status(201).json({
+        message: "User Created Sucessfully!!",
+        data: datawithoutPassword,
+      });
+
     } catch (error) {
-      res.status(500).json({ message: "Internal Server Error", error });
+      res.status(500).json({ message: "Internal Server Error", error: (error as Error).message });
     }
   },
 
-  userLogin: async (req: Request, res: Response) => {},
+  userLogin: async (req: Request, res: Response) => {
+    const { phonenumber , password} = req.body
+
+    
+  },
 };
