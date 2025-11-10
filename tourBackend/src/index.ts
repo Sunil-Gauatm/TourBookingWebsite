@@ -3,7 +3,7 @@ import authRouter from "./routes/auth.routes.ts";
 import { dbConnection } from "./utils/dbConnect.ts";
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 // Use JSON middleware if your routes need to parse JSON
 app.use(express.json());

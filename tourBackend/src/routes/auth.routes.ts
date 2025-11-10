@@ -6,10 +6,14 @@ const router = Router();
 
 // Define your auth route
 router.post(
-  "/register",
+  "/registers",
   authenticationValidation.userRegistrationValidation,
   authentication.userRegistration
 );
-router.post("/login", authentication.userLogin);
+router.post(
+  "/login",
+  authenticationValidation.userLoginValidation,
+  authentication.userLogin
+);
 
 export default router;

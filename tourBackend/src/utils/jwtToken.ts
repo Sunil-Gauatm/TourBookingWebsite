@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { config } from "dotenv";
 
 interface playloadInterface {
-  id: number;
+  id: string;
   name: string;
   email: string;
   phonenumber: string;

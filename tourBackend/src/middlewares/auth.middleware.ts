@@ -41,8 +41,30 @@ export const authenticationValidation = {
     next();
   },
 
-  userLoginValidation(req : Request , res : Response , next : NextFunction){
-    
+  userLoginValidation(req: Request, res: Response, next: NextFunction) {
+    const phonenumber = req.body.phonenumber.trim();
+    const password = req.body.password.trim();
 
-  }
+    if (!phonenumber) {
+      return res
+        .status(400)
+        .json({ message: "Phone number field is required" });
+    }
+    if (!password) {
+      return res.status(400).json({ message: "Password field is required" });
+    }
+
+    if (password.length < 6)
+      return res
+        .status(400)
+        .json({ message: "Password must be at least 6 characters long" });
+
+    const phoneRegex = /^9\d{9}$/; // 10 digits starting with 9 (Nepal)
+    if (!phoneRegex.test(phonenumber))
+      return res
+        .status(400)
+        .json({ message: "Invalid phone number format (Nepalese only)" });
+
+    next();
+  },
 };

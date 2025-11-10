@@ -8,7 +8,6 @@ export const authentication = {
     try {
       const { name, email, phonenumber, password } = req.body;
 
-
       // check exisiting user
       const exisitingemail = await User.findOne({ email });
 
@@ -35,31 +34,37 @@ export const authentication = {
         password: hashPassword,
       });
 
-      const savedUser = await User.findById(newuser._id)
-      console.log(savedUser)
+      const savedUser = await User.findById(newuser._id);
 
       const { password: _password, ...datawithoutPassword } =
         newuser.toObject();
 
-        
-      // const token =  jwtTokenGenerator({
-          
-
-      //   })
-
-      res.status(201).json({
-        message: "User Created Sucessfully!!",
-        data: datawithoutPassword,
+      const token = jwtTokenGenerator({
+        id: String(savedUser?._id),
+        name: savedUser?.name as string,
+        email: savedUser?.email as string,
+        phonenumber: savedUser?.phonenumber as string,
       });
 
+      res.status(201).json({
+        message: "User Created Sucessfullyyyyy!!",
+        data: datawithoutPassword,
+        token,
+      });
     } catch (error) {
-      res.status(500).json({ message: "Internal Server Error", error: (error as Error).message });
+      res.status(500).json({
+        message: "Internal Server Error",
+        error: (error as Error).message,
+      });
     }
   },
 
   userLogin: async (req: Request, res: Response) => {
-    const { phonenumber , password} = req.body
+    const { phonenumber, password } = req.body;
 
-    
+    //check number is logined or not
+
+
+
   },
 };
