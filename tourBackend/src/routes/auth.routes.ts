@@ -15,5 +15,9 @@ router.post(
   authenticationValidation.userLoginValidation,
   authentication.userLogin
 );
+router.get(
+  "/user",
+  authentication.getUser
+);
 
 export default router;

@@ -64,7 +64,37 @@ export const authentication = {
 
     //check number is logined or not
 
+    const exisitingPhoneNumber = await User.findOne({ phonenumber });
 
+    if (!exisitingPhoneNumber) {
+      return res
+        .status(400)
+        .json({ message: "Invalid PhoneNumber and Password!!" });
+    }
 
+    const checkPassword = bcrypt.compareSync(
+      password,
+      exisitingPhoneNumber.password
+    );
+
+    if (!checkPassword) {
+      return res
+        .status(400)
+        .json({ message: "Invalid PhoneNumber and Password!!" });
+    }
+
+    const token = jwtTokenGenerator({
+      id: String(exisitingPhoneNumber?._id),
+      name: exisitingPhoneNumber?.name as string,
+      email: exisitingPhoneNumber?.email as string,
+      phonenumber: exisitingPhoneNumber?.phonenumber as string,
+    });
+
+    res.status(200).json({ message: "Login sucessfully", token });
+  },
+
+  getUser: async (req: Request, res: Response) => {
+    const user = await User.find();
+    res.status(200).json({ data: user });
   },
 };
