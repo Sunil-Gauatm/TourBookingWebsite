@@ -4,7 +4,9 @@ import Homepage from "./Pages/User/Homepage/Homepage";
 import Adminloginpage from "./Pages/Admin/Adminloginpage";
 import ThemeProvider from "./theme/ThemeProvider";
 import "./theme/theme-variables.css";
-import Dashboardpage from "./Pages/Admin/dashboard/dashboard";
+import AdminDashboardPage from "./Pages/Admin/dashboard/AdminDashboardPage";
+import AdminDashBoard from "./Pages/Admin/dashboard/Components/AdminDashBoard";
+import AdminDestination from "./Pages/Admin/dashboard/Components/AdminDestination";
 
 const App: React.FC = () => {
   return (
@@ -15,7 +17,9 @@ const App: React.FC = () => {
 
           {/* admin routes */}
           <Route path="/admin/login" element={<Adminloginpage />} />
-          <Route path="/admin/dashboard" element={<Dashboardpage />} />
+          <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+          <Route path="/admin/" element={<AdminDashBoard />} />
+          <Route path="/admin/destination" element={<AdminDestination />} />
         </Routes>
       </ThemeProvider>
     </>
