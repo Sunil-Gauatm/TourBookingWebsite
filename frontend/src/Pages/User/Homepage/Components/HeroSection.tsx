@@ -1,7 +1,7 @@
 import React from "react";
-import backgroundDecore from "../../../assets/Decore.png";
-import heroImage from '../../../assets/Traveller.png'
-import textDecore from '../../../assets/Decore (1).png'
+import backgroundDecore from "../../../../assets/Decore.png";
+import heroImage from '../../../../assets/Traveller.png'
+import textDecore from '../../../../assets/Decore (1).png'
 import { GoTriangleRight } from "react-icons/go";
 
 

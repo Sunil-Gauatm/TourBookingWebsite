@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../../assets/image 29.png";
+import image from "../../../../assets/image 29.png";
 
 const Sponser: React.FC = () => {
   return (

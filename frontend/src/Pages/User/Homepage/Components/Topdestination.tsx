@@ -1,7 +1,7 @@
 import React from "react";
-import image1 from "../../../assets/Rectangle 14 (1).png";
-import image2 from "../../../assets/Rectangle 14.jpg";
-import image3 from "../../../assets/Rectangle 14.png";
+import image1 from "../../../../assets/Rectangle 14 (1).png";
+import image2 from "../../../../assets/Rectangle 14.jpg";
+import image3 from "../../../../assets/Rectangle 14.png";
 import { CiLocationArrow1 } from "react-icons/ci";
 
 const destinationData = [

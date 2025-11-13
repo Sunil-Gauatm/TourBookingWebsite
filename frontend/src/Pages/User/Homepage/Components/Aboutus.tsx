@@ -1,8 +1,8 @@
 import React from "react";
-import image from "../../../assets/Rectangle 17.jpg";
+import image from "../../../../assets/Rectangle 17.jpg";
 import { SiMaterialdesignicons } from "react-icons/si";
 import { FaRegBuilding } from "react-icons/fa";
-import image1 from '../../../assets/image 32.png'
+import image1 from '../../../../assets/image 25.png'
 
 const servicesData = [
   {

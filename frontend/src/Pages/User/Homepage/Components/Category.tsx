@@ -1,7 +1,7 @@
 import React from "react";
-import services from "../../../assets/satellite-dish.png";
-import services1 from "../../../assets/plane.png";
-import services2 from "../../../assets/image 25.png";
+import services from "../../../../assets/satellite-dish.png";
+import services1 from "../../../../assets/plane.png";
+import services2 from "../../../../assets/image 25.png";
 
 const servicesData = [
   {
