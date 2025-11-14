@@ -9,7 +9,10 @@ const AdminDestination: React.FC = () => {
       <div className="flex flex-row gap-8 items-center">
         {/* search destination here */}
         <div className="relative flex-1">
-          <CiSearch size={20} className="absolute left-3 top-1/2 -translate-y-1/2 " />
+          <CiSearch
+            size={20}
+            className="absolute left-3 top-1/2 -translate-y-1/2 "
+          />
 
           <input
             type="text"
@@ -21,7 +24,9 @@ const AdminDestination: React.FC = () => {
         {/* add button  */}
 
         <div>
-          <button className="border-2 px-12 py-3 rounded-md bg-green-700 text-white text-xl font-semibold  cursor-pointer transition-all duration-200 ease-in-out hover:text-green-700 hover:bg-white">Add</button>
+          <button className="border-2 px-12 py-3 rounded-md bg-green-700 text-white text-xl font-semibold  cursor-pointer transition-all duration-200 ease-in-out hover:text-green-700 hover:bg-white">
+            Add
+          </button>
         </div>
       </div>
     </div>
