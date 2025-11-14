@@ -7,6 +7,7 @@ import "./theme/theme-variables.css";
 import AdminDashboardPage from "./Pages/Admin/dashboard/AdminDashboardPage";
 import AdminDashBoard from "./Pages/Admin/dashboard/Components/AdminDashBoard";
 import AdminDestination from "./Pages/Admin/dashboard/Components/AdminDestination";
+import AdminBooking from "./Pages/Admin/dashboard/Components/AdminBooking";
 
 const App: React.FC = () => {
   return (
@@ -17,9 +18,14 @@ const App: React.FC = () => {
 
           {/* admin routes */}
           <Route path="/admin/login" element={<Adminloginpage />} />
-          <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
-          <Route path="/admin/" element={<AdminDashBoard />} />
-          <Route path="/admin/destination" element={<AdminDestination />} />
+
+          <Route path="/admin" element={<AdminDashboardPage />}>
+            <Route index element={<AdminDashBoard />} />
+            <Route path="dashboard" element={<AdminDashBoard />} />
+            <Route path="destination" element={<AdminDestination />} />
+            <Route path="booking" element={<AdminBooking />} />
+          </Route>
+          
         </Routes>
       </ThemeProvider>
     </>
