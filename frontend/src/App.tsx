@@ -6,7 +6,7 @@ import ThemeProvider from "./theme/ThemeProvider";
 import "./theme/theme-variables.css";
 import AdminDashboardPage from "./Pages/Admin/dashboard/AdminDashboardPage";
 import AdminDashBoard from "./Pages/Admin/dashboard/Components/AdminDashBoard";
-import AdminDestination from "./Pages/Admin/dashboard/Components/AdminDestination";
+import AdminDestination from "./Pages/Admin/dashboard/Components/Destination/AdminDestination";
 import AdminBooking from "./Pages/Admin/dashboard/Components/AdminBooking";
 
 const App: React.FC = () => {

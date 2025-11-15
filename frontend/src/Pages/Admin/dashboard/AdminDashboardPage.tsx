@@ -20,8 +20,15 @@ const AdminDashboardPage: React.FC = () => {
     <>
       <div className="flex h-screen">
         {/* Sidebar */}
-        <div className={`bg-primary text-secondary  py-6 h-full shadow-2xl  ${sliderOpen ? "w-0  md:w-[20rem]" : "w-[20rem] md:w-24"} transition-all duration-300 ease-in-out`}>
-          <h1 className={`mx-10 my-4 ${sliderOpen ? "text-xl" : "text-md"}`}>  {sliderOpen ? "Admin Panel" : ""}</h1>
+        <div
+          className={`bg-primary text-secondary  py-6 h-full shadow-2xl  ${
+            sliderOpen ? "w-0  md:w-[20rem]" : "w-[20rem] md:w-24"
+          } transition-all duration-300 ease-in-out`}
+        >
+          <h1 className={`mx-10 my-4 ${sliderOpen ? "text-xl" : "text-md"}`}>
+            {" "}
+            {sliderOpen ? "Admin Panel" : ""}
+          </h1>
 
           <div className="mt-12 flex flex-col gap-2">
             <div
@@ -29,7 +36,11 @@ const AdminDashboardPage: React.FC = () => {
               onClick={() => navigate("/admin/dashboard")}
             >
               <MdDashboard size={20} />
-              <h1 className={`text-xl ${sliderOpen ? "flex" : " flex md:hidden"}`}>Dashboard</h1>
+              <h1
+                className={`text-xl ${sliderOpen ? "flex" : " flex md:hidden"}`}
+              >
+                Dashboard
+              </h1>
             </div>
 
             <div
@@ -37,7 +48,11 @@ const AdminDashboardPage: React.FC = () => {
               onClick={() => navigate("/admin/destination")}
             >
               <FaLocationDot size={20} />
-              <h1 className={`text-xl ${sliderOpen ? "flex" : "flex md:hidden"}`}>Destination</h1>
+              <h1
+                className={`text-xl ${sliderOpen ? "flex" : "flex md:hidden"}`}
+              >
+                Destination
+              </h1>
             </div>
 
             <div
@@ -45,14 +60,23 @@ const AdminDashboardPage: React.FC = () => {
               onClick={() => navigate("/admin/booking")}
             >
               <FaBookOpen size={20} />
-              <h1 className={`text-xl ${sliderOpen ? "flex" : "flex md:hidden"}`}>Booking</h1>
+              <h1
+                className={`text-xl ${sliderOpen ? "flex" : "flex md:hidden"}`}
+              >
+                Booking
+              </h1>
             </div>
           </div>
         </div>
 
         {/* Top bar */}
-        <div className="flex-1 flex flex-col">
-          <div className="bg-primary h-20 w-full flex items-center px-4" onClick={toggleSlider}>
+        <div
+          className={`${sliderOpen ? "flex-1 md:flex-1" : "md:flex-1"} flex flex-col`}
+        >
+          <div
+            className="bg-primary h-20 w-full flex items-center px-4"
+            onClick={toggleSlider}
+          >
             <GiHamburgerMenu
               color="white"
               size={25}

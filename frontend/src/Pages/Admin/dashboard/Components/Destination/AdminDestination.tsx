@@ -1,7 +1,10 @@
 import React from "react";
 import { CiSearch } from "react-icons/ci";
+import AddDestinationModal from "./AddDestinationModal";
 
 const AdminDestination: React.FC = () => {
+
+  const[openModal, setOpenModal] = React.useState(false)
   return (
     <div>
       {/* top section  */}
@@ -24,10 +27,16 @@ const AdminDestination: React.FC = () => {
         {/* add button  */}
 
         <div>
-          <button className="border-2 px-12 py-3 rounded-md bg-green-700 text-white text-xl font-semibold  cursor-pointer transition-all duration-200 ease-in-out hover:text-green-700 hover:bg-white">
+          <button className="border-2 px-12 py-3 rounded-md bg-green-700 text-white text-xl font-semibold  cursor-pointer transition-all duration-200 ease-in-out hover:text-green-700 hover:bg-white"
+          onClick={()=> setOpenModal(true)}
+          >
             Add
           </button>
         </div>
+
+        {/* modal  */}
+
+        <AddDestinationModal onclose={() =>setOpenModal(false)} open={openModal}/>
       </div>
     </div>
   );
